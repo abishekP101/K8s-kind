@@ -3,12 +3,23 @@ kind: Ingress
 metadata:
   name: nginx-nodes-ingress
   namespace: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - http:
-       paths:
-      - pathType: Prefix
-        path: /nginx
-        backend:
-          service:
-            - nginx-service
+      paths:
+        - pathType: Prefix
+          path: /nginx
+          backend:
+            service:
+              name: nginx-service
+              port:
+                number: 80
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              name: notes-app-service
+              port:
+                number: 8000
