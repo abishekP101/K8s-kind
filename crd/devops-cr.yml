@@ -1,0 +1,9 @@
+kind: DevOpsBatch
+apiVersion: trainwithshubham.com/v1
+metadata: 
+  name: junoon-batch-9
+spec: 
+  name: DevOps-Zero To Hero
+  duration: 3 months
+  platform: trainwithshubhaam.com
+  mode: Live as always
